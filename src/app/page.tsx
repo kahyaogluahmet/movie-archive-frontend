@@ -11,7 +11,7 @@ export default function Home() {
     model.current.showModal();
   }, []);
   return (
-    <div>
+    <div >
       <AuthModel model={model} />
     </div>
   );
