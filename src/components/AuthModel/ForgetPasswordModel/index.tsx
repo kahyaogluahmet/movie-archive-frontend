@@ -7,7 +7,7 @@ type Props = {
 
 function ForgetPasswordModel({ setScreen }: Props) {
   return (
-    <div>
+    <>
       <h1 className="text-3xl font-bold text-center">Şifre Sıfırlama</h1>
       <div className="flex flex-col mt-12">
         <label className="mb-3 font-semibold text-sm " htmlFor="email-input">
@@ -26,7 +26,7 @@ function ForgetPasswordModel({ setScreen }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

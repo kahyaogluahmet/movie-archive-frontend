@@ -15,7 +15,7 @@ function AuthModel({model}:Props) {
   );
 
   return (
-    <dialog ref={model} className=" p-20 rounded-lg h-[80%] overflow-hidden  ">
+    <dialog ref={model} className="lg:p-20 p-5 rounded-lg w-[90%] lg:w-96 overflow-hidden relative "  >
       {screen === "Login" && <LoginModel model={model} setScreen={setScreen} />}
       {screen === "Signup" && <SignupModel setScreen={setScreen} />}
       {screen === "Password" && <ForgetPasswordModel setScreen={setScreen} />}

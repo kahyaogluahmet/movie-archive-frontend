@@ -7,7 +7,7 @@ type Prop = {
 };
 function LoginModel({ setScreen, model }: Prop) {
   return (
-    <div className="flex flex-col items-center w-full  ">
+    <div className="flex flex-col items-center w-full   ">
       <div className="h-[460px] "  >
         <h1 className="text-3xl font-bold text-center">Giriş yap</h1>
         <div className="flex flex-col mt-12">
@@ -36,9 +36,9 @@ function LoginModel({ setScreen, model }: Prop) {
           Giriş yap
         </button>
       </div>
-      <div >
+      <div className="absolute bottom-0 border-t-2 w-full flex justify-center py-4 " >
        <span>Hesabın yok mu ?</span>
-        <button className="ml-2  text-rose-600 font-semibold"  onClick={() => setScreen("Signup")}><span>Yeni hesap</span></button>
+        <button className="ml-2 text-rose-600 font-semibold"  onClick={() => setScreen("Signup")}><span>Yeni hesap</span></button>
       </div>
     </div>
   );
