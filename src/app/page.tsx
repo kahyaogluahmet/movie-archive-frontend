@@ -11,9 +11,9 @@ import { useEffect, useRef } from "react";
 export default function Home() {
   const model: any = useRef<HTMLDialogElement>();
 
-  // useEffect(() => {
-  //   model.current.showModal();
-  // }, []);
+  useEffect(() => {
+    model.current.showModal();
+  }, []);
  
 
   const movies = [
@@ -95,7 +95,7 @@ export default function Home() {
   ];
   return (
     <div className="flex flex-col  justify-between">
-      {/* <AuthModel model={model} /> */}
+      <AuthModel model={model} />
       <header className="bg-red-300 ">
         <div className="container lg:max-w-[1024px] mx-auto flex justify-between items-center h-24">
           <div className="w-28" />
