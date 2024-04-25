@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MovieCard from "./MovieCard";
+import langData from "../../../../language.json";
+import { useAtom } from "jotai";
+import { langAtom } from "@/atoms/atom";
 
 function TrendMoviesSection() {
+  const [lang] = useAtom(langAtom);
   const popular = [
     {
       image:
@@ -28,7 +32,7 @@ function TrendMoviesSection() {
   ];
   return (
     <div className="flex flex-col gap-4">
-      <h2>Trend Filmler</h2>
+      <h2>{langData[lang].trendMovies}</h2>
       {popular.map((film, index) => {
         return <MovieCard key={index} film={film} />;
       })}

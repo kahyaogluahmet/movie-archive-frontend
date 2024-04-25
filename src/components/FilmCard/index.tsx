@@ -5,15 +5,16 @@ import React from "react";
 type Prop = {
   movie: {
     image: string;
-    movieId: number;
+    id: number;
+    title: string;
   };
 };
 
 function FilmCard({ movie }: Prop) {
   return (
-    <div>
+    <div >
       <Link href={"#"}>
-        <Image
+        <Image className="rounded-xl"
           src={movie.image}
           height={200}
           width={200}

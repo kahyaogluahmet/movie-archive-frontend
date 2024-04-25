@@ -1,0 +1,26 @@
+{
+  "tr-TR": {
+    "title": "Site başlık",
+    "profile": "Profil",
+    "settings": "Ayarlar",
+    "doSearch": "Arama",
+    "search": "Ara",
+    "trendMovies": "Trend Filmler",
+    "adviceRobot": "Tavsiye Robotu",
+    "imdbVote": "Imdb Puanı",
+    "category": "Kategori",
+    "year": "Yıl"
+  },
+  "en-US": {
+    "title": "Site Header",
+    "profile": "Profile",
+    "settings": "Settings",
+    "doSearch": "Do Search",
+    "search": "Search",
+    "trendMovies": "Trend Movies",
+    "adviceRobot": "Advice Robot",
+    "imdbVote": "Imdb Vote",
+    "category": "Category",
+    "year": "Year"
+  }
+}
