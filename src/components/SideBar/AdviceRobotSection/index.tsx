@@ -1,15 +1,15 @@
-import { categoryAtom, langAtom, movieAtom } from "@/atoms/atom";
-import { useAtom } from "jotai";
-import React, { useEffect, useState } from "react";
-import langData from "../../../../language.json";
+import { categoryAtom, langAtom, movieAtom } from '@/atoms/atom';
+import { useAtom } from 'jotai';
+import React, { useEffect, useState } from 'react';
+import langData from '../../../../language.json';
 
 function AdviceRobotSection() {
   const [movies, setMovies] = useAtom(movieAtom);
   const [lang] = useAtom(langAtom);
   const [categories] = useAtom(categoryAtom);
-  const [vote, setVote] = useState<string>("");
+  const [vote, setVote] = useState<string>('');
   const [genres, setGenres] = useState<string[]>([]);
-  const [year, setYear] = useState<string>("");
+  const [year, setYear] = useState<string>('');
 
   async function getSelectedData() {
     const request = {
@@ -19,10 +19,10 @@ function AdviceRobotSection() {
       year: year,
     };
 
-    const res = await fetch("http://localhost:3000/getRobotSearchMovies", {
-      method: "POST",
+    const res = await fetch('http://localhost:3000/getRobotSearchMovies', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(request),
     });
@@ -46,8 +46,16 @@ function AdviceRobotSection() {
   return (
     <div className="flex flex-col gap-4">
       <h2>{langData[lang].adviceRobot}</h2>
-      <select onChange={(e) => setVote(e.target.value)} name="Imdb-puan" id="">
-        <option value="" selected disabled>
+      <select
+        defaultValue="1"
+        onChange={(e) => setVote(e.target.value)}
+        name="Imdb-puan"
+        id=""
+      >
+        <option
+          value="1"
+          disabled
+        >
           {langData[lang].imdbVote}
         </option>
         <option value="imdb-1">1</option>
@@ -85,8 +93,15 @@ function AdviceRobotSection() {
           </div>
         );
       })}
-      <select onChange={(e) => setYear(e.target.value)} name="Yıl" id="">
-        <option value="" selected disabled>
+      <select
+        onChange={(e) => setYear(e.target.value)}
+        name="Yıl"
+        defaultValue="1"
+      >
+        <option
+          value="1"
+          disabled
+        >
           {langData[lang].year}
         </option>
         <option value="2019">2019</option>

@@ -1,21 +1,20 @@
-
 export type EnglishDataObject = {
-  popularMovies: BasicMovieObject[];
-  englishCategories: CategoryObject[];
+ popularMovies: BasicMovieObject[];
+ englishCategories: CategoryObject[];
 };
 
 export type TurkishDataObject = {
-    popularMovies: BasicMovieObject[];
-    turkishCategories: CategoryObject[];
-  };
+ popularMovies: BasicMovieObject[];
+ turkishCategories: CategoryObject[];
+};
 
-export interface BasicMovieObject {
-  id: number;
-  title: string;
-  image: string;
-}
+export type BasicMovieObject = {
+ id: number;
+ title: string;
+ image: string;
+};
 
-export interface CategoryObject {
-  id: number;
-  name: string;
-}
+export type CategoryObject = {
+ id: number;
+ name: string;
+};
