@@ -2,11 +2,11 @@ import { categoryAtom, langAtom, movieAtom } from '@/atoms/atom';
 import { useAtom } from 'jotai';
 import React, { useEffect, useState } from 'react';
 import langData from '../../../../language.json';
-
-function AdviceRobotSection() {
+import { CategoryObject } from '@/types';
+type Prop = {categories:CategoryObject[] }
+function AdviceRobotSection({categories}:Prop) {
   const [movies, setMovies] = useAtom(movieAtom);
   const [lang] = useAtom(langAtom);
-  const [categories] = useAtom(categoryAtom);
   const [vote, setVote] = useState<string>('');
   const [genres, setGenres] = useState<string[]>([]);
   const [year, setYear] = useState<string>('');

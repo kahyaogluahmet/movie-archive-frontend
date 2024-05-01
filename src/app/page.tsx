@@ -4,28 +4,31 @@ import AuthModel from '@/components/AuthModel';
 import LoginModel from '@/components/AuthModel/LoginModel';
 import FilmCard from '@/components/FilmCard';
 import SideBar from '@/components/SideBar';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import langData from '../../language.json';
 import { useAtom } from 'jotai';
 import { categoryAtom, langAtom, movieAtom } from '@/atoms/atom';
 import useGetPopularMovies from '@/hooks/useGetPopularMovies';
 
+import axios from 'axios';
+import useGetTrendMovies from '@/hooks/useGetTrendMovies';
+
 export default function Home() {
   const [movies, setMovies] = useAtom(movieAtom);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const [categories, setCategories] = useAtom(categoryAtom);
   const [lang, setLang] = useAtom(langAtom);
+
 
   const model: any = useRef<HTMLDialogElement>();
 
   const { isError, isLoading, isSuccess, data } = useGetPopularMovies({
     lang: 'en-US',
   });
-
+  
+  
   if (isSuccess) {
     setMovies(data);
-    console.log(data);
   }
 
   const userLogin = localStorage.getItem('login');
@@ -70,7 +73,7 @@ export default function Home() {
         </div>
       </header>
       <main className="container lg:max-w-[1024px] mx-auto  md:bg-green-400  ">
-        <div className="flex justify-between items-center w-1/2 mx-auto gap-8 p-4 ">
+        {/* <div className="flex justify-between items-center w-1/2 mx-auto gap-8 p-4 ">
           <input
             ref={searchRef}
             onKeyDown={(e) => e.code == 'Enter' && searchMovie()}
@@ -85,7 +88,7 @@ export default function Home() {
             {' '}
             {langData[lang].search}
           </button>
-        </div>
+        </div> */}
         <div className="flex  mt-10 border p-4 rounded-lg justify-between gap-4 ">
           <div className="flex flex-wrap gap-4 w-[800px]  ">
             {isLoading && <div>Loading</div>}
