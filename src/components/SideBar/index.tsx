@@ -11,9 +11,6 @@ import { langAtom } from "@/atoms/atom";
 function SideBar() {
   const [lang, setLang] = useAtom(langAtom);
   const { isError, isLoading, isSuccess, data } = useGetTrendMovies({lang})
-if(isSuccess){
-  console.log(data)
-}
   return (
     <div className="border rounded-md p-2 w-96 flex flex-col gap-4">
       {
@@ -24,7 +21,7 @@ if(isSuccess){
       }
       {
         isSuccess && <>
-      <TrendMoviesSection trendMovies={data.trendMovies}/>
+      <TrendMoviesSection  trendMovies={data.trendMovies}/>
       <AdviceRobotSection categories={data.categories}/>
         </>
       }

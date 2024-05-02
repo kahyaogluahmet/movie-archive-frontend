@@ -21,6 +21,7 @@ const useGetTrendMovies = ({ lang }: Prop) => {
   const data = useQuery({
     queryKey: ['trendMovies',lang],
     queryFn: async () => await fetchTrendMovies(lang),
+    staleTime: 900000,
   });
   return data;
 };
