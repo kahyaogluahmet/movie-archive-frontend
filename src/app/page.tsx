@@ -4,24 +4,18 @@ import AuthModel from '@/components/AuthModel';
 import LoginModel from '@/components/AuthModel/LoginModel';
 import FilmCard from '@/components/FilmCard';
 import SideBar from '@/components/SideBar';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import langData from '../../language.json';
-import { useAtom } from 'jotai';
-import {
-  categoryAtom,
-  langAtom,
-  movieAtom,
-  searchMoviesAtom,
-} from '@/atoms/atom';
+import { useAtom, useAtomValue } from 'jotai';
+import { langAtom, movieAtom, searchMoviesAtom } from '@/atoms/atom';
 import useGetPopularMovies from '@/hooks/useGetPopularMovies';
 
-import axios from 'axios';
-import useGetTrendMovies from '@/hooks/useGetTrendMovies';
 import Search from '@/components/Search';
+import Link from 'next/link';
 
 export default function Home() {
   const [movies, setMovies] = useAtom(movieAtom);
-  const [searchMovies, setSearchMovies] = useAtom(searchMoviesAtom);
+  const searchMovies = useAtomValue(searchMoviesAtom);
   const [lang, setLang] = useAtom(langAtom);
 
   const model: any = useRef<HTMLDialogElement>();
@@ -39,23 +33,6 @@ export default function Home() {
   if (userLogin === 'true') {
     model.current.showModal();
   }
-
-  // TODO:Burası da örnekteki gibi olacak
-  // async function searchMovie() {
-  //   const request = {
-  //     lang: lang,
-  //     query: searchRef.current?.value,
-  //   };
-  //   const res = await fetch(`${process.env.URL}movies/getSearchMovies`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(request),
-  //   });
-  //   const { searchMovies } = await res.json();
-  //   setMovies(searchMovies);
-  // }
 
   return (
     <div className="flex flex-col  justify-between">
@@ -79,25 +56,34 @@ export default function Home() {
       <main className="container lg:max-w-[1024px] mx-auto  md:bg-green-400  ">
         <Search />
 
-        <div className="flex  mt-10 border p-4 rounded-lg justify-between gap-4 ">
-          <div className="flex flex-wrap gap-4 w-[800px]  ">
+        <div className="flex mt-10 border gap-5">
+          <div className="flex flex-wrap gap-3 bg-slate-800 p-3 justify-between items-center rounded-3xl ">
             {isLoading && <div>Loading</div>}
             {isError && <div>Error</div>}
             {isSuccess && searchMovies.length === 0
               ? movies?.map((movie, index) => {
                   return (
-                    <FilmCard
+                    <Link
+                      href={'#'}
+                      className="rounded-xl w-[150px] h-[225px] overflow-hidden  bg-slate-300"
                       key={index}
-                      movie={movie}
-                    />
+                    >
+                      <FilmCard movie={movie} />
+                    </Link>
                   );
                 })
               : searchMovies?.map((movie, index) => {
                   return (
-                    <FilmCard
+                    <Link
+                      href={'#'}
+                      className="rounded-xl overflow-hidden  bg-slate-300"
                       key={index}
-                      movie={movie}
-                    />
+                    >
+                      <FilmCard
+                        key={index}
+                        movie={movie}
+                      />
+                    </Link>
                   );
                 })}
           </div>

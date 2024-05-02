@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 type Props = {
   film: {
@@ -8,21 +8,21 @@ type Props = {
     title: string;
   };
 };
-function MovieCard({film}:Props) {
+function MovieCard({ film }: Props) {
   return (
     <div>
       <Link
-        href={"#"}
+        href={'#'}
         className="flex gap-2 border rounded p-2 items-center "
       >
-        <div className=" w-8 h-8 rounded-full overflow-hidden">
-          <Image
-            src={film.image}
-            height={32}
-            width={32}
-            alt="Picture of the author"
-          />
-        </div>
+        <Image
+          className="aspect-square rounded-full"
+          src={film.image}
+          width={32}
+          height={32}
+          alt="Picture of the author"
+        />
+
         <p>{film.title}</p>
       </Link>
     </div>
