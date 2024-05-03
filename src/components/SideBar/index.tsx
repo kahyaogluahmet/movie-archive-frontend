@@ -11,7 +11,7 @@ function SideBar() {
   const [lang, setLang] = useAtom(langAtom);
   const { isError, isLoading, isSuccess, data } = useGetTrendMovies({ lang });
   return (
-    <div className="border rounded-md shrink-0 w-[295] flex flex-col gap-4">
+    <div className="border rounded-md w-full  flex flex-col gap-4">
       {isError && <div>Error</div>}
       {isLoading && <div>Loading</div>}
       {isSuccess && (

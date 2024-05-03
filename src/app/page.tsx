@@ -9,9 +9,7 @@ import langData from '../../language.json';
 import { useAtom, useAtomValue } from 'jotai';
 import { langAtom, movieAtom, searchMoviesAtom } from '@/atoms/atom';
 import useGetPopularMovies from '@/hooks/useGetPopularMovies';
-
 import Search from '@/components/Search';
-import Link from 'next/link';
 
 export default function Home() {
   const [movies, setMovies] = useAtom(movieAtom);
@@ -33,6 +31,8 @@ export default function Home() {
   if (userLogin === 'true') {
     model.current.showModal();
   }
+
+  const moviesArray = searchMovies.length > 0 ? searchMovies : movies;
 
   return (
     <div className="flex flex-col  justify-between">
@@ -57,35 +57,19 @@ export default function Home() {
         <Search />
 
         <div className="flex mt-10 border gap-5">
-          <div className="flex flex-wrap gap-3 bg-slate-800 p-3 justify-between items-center rounded-3xl ">
+          <div className="grid grid-cols-4 shrink-0 gap-7 bg-slate-800 p-7  rounded-3xl ">
+            {/* TODO:Error Modal yapılacak, Loading için spinner koyulacak */}
             {isLoading && <div>Loading</div>}
             {isError && <div>Error</div>}
-            {isSuccess && searchMovies.length === 0
-              ? movies?.map((movie, index) => {
-                  return (
-                    <Link
-                      href={'#'}
-                      className="rounded-xl w-[150px] h-[225px] overflow-hidden  bg-slate-300"
-                      key={index}
-                    >
-                      <FilmCard movie={movie} />
-                    </Link>
-                  );
-                })
-              : searchMovies?.map((movie, index) => {
-                  return (
-                    <Link
-                      href={'#'}
-                      className="rounded-xl overflow-hidden  bg-slate-300"
-                      key={index}
-                    >
-                      <FilmCard
-                        key={index}
-                        movie={movie}
-                      />
-                    </Link>
-                  );
-                })}
+            {isSuccess &&
+              moviesArray?.map((movie, index) => {
+                return (
+                  <FilmCard
+                    movie={movie}
+                    key={index}
+                  />
+                );
+              })}
           </div>
           <SideBar />
         </div>
