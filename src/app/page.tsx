@@ -1,7 +1,6 @@
 'use client';
 
 import AuthModel from '@/components/AuthModel';
-import LoginModel from '@/components/AuthModel/LoginModel';
 import FilmCard from '@/components/FilmCard';
 import SideBar from '@/components/SideBar';
 import { useRef } from 'react';
@@ -10,6 +9,8 @@ import { useAtom, useAtomValue } from 'jotai';
 import { langAtom, movieAtom, searchMoviesAtom } from '@/atoms/atom';
 import useGetPopularMovies from '@/hooks/useGetPopularMovies';
 import Search from '@/components/Search';
+import Loading from '@/components/Loading';
+import ErrorModal from '@/components/ErrorModal';
 
 export default function Home() {
   const [movies, setMovies] = useAtom(movieAtom);
@@ -59,8 +60,9 @@ export default function Home() {
         <div className="flex mt-10 border gap-5">
           <div className="grid grid-cols-4 shrink-0 gap-7 bg-slate-800 p-7  rounded-3xl ">
             {/* TODO:Error Modal yapılacak, Loading için spinner koyulacak */}
-            {isLoading && <div>Loading</div>}
-            {isError && <div>Error</div>}
+
+            {isLoading && <Loading />}
+            {isError && <ErrorModal />}
             {isSuccess &&
               moviesArray?.map((movie, index) => {
                 return (

@@ -11,7 +11,7 @@ function FilmCard({ movie }: Prop) {
   const { id, image } = movie;
   return (
     <Link
-      href={`/movie/${id}`}
+      href={`/movie/${id}` }
       className="rounded-xl w-[100px] h-[150px] overflow-hidden  bg-slate-300"
     >
       <Image

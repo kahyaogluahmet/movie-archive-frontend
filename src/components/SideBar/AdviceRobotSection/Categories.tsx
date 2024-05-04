@@ -1,5 +1,5 @@
 import { CategoryObject } from '@/types';
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 
 type Props = {
   categories: CategoryObject[];

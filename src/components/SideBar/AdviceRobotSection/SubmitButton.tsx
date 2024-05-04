@@ -31,8 +31,9 @@ function SubmitButton({ genres, year, vote }: Props) {
   }
 
   return (
-    <div>
+    <div className='mt-3' >
       <button
+      
         onClick={() =>
           setFormState({
             genres,
@@ -40,7 +41,7 @@ function SubmitButton({ genres, year, vote }: Props) {
             vote,
           })
         }
-        className="ml-auto border px-4 py-2 rounded-md"
+        className="ml-auto w-32 px-6 py-2 rounded-full bg-[#1B1A55] text-white outline-none"
       >
         Bul
       </button>

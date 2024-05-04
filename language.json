@@ -8,8 +8,13 @@
     "trendMovies": "Trend Filmler",
     "adviceRobot": "Tavsiye Robotu",
     "imdbVote": "Imdb Puanı",
-    "category": "Kategori",
-    "year": "Yıl"
+    "category": "Film Türleri",
+    "year": "Yıllara göre Filmler",
+    "loading": "Yükleniyor...",
+    "hour": "saat",
+    "minute": "dakika",
+    "error": "Hata",
+    "errorDesc": "Lütfen sayfayı yenileyin ve tekrar deneyin"
   },
   "en-US": {
     "title": "Site Header",
@@ -20,7 +25,12 @@
     "trendMovies": "Trend Movies",
     "adviceRobot": "Advice Robot",
     "imdbVote": "Imdb Vote",
-    "category": "Category",
-    "year": "Year"
+    "category": "Types of Movies",
+    "year": "Movies by Year",
+    "loading": "Loading...",
+    "hour": "hour",
+    "minute": "minutes",
+    "error": "Error",
+    "errorDesc": "Please refresh the page and try again"
   }
 }
