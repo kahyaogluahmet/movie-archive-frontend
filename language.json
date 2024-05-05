@@ -14,7 +14,8 @@
     "hour": "saat",
     "minute": "dakika",
     "error": "Hata",
-    "errorDesc": "Lütfen sayfayı yenileyin ve tekrar deneyin"
+    "errorDesc": "Lütfen sayfayı yenileyin ve tekrar deneyin",
+    "notFoundDesc": "Bu içeriğin bu dilde açıklaması bulunmamaktadır."
   },
   "en-US": {
     "title": "Site Header",
@@ -31,6 +32,7 @@
     "hour": "hour",
     "minute": "minutes",
     "error": "Error",
-    "errorDesc": "Please refresh the page and try again"
+    "errorDesc": "Please refresh the page and try again",
+    "notFoundDesc": "This content has no description in this language."
   }
 }
