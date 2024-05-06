@@ -23,7 +23,7 @@ const useGetMovieById = ({ id }: Prop) => {
   const lang = useAtomValue(langAtom);
 
   const data = useQuery({
-    queryKey: ['movieId', lang],
+    queryKey: ['movieId', lang, id],
     queryFn: async () => await fetch(lang, id),
     staleTime: 900000,
   });
