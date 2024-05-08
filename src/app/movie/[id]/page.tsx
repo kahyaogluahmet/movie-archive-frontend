@@ -3,7 +3,7 @@ import useGetMovieById from '@/hooks/useGetMovieById';
 import React from 'react';
 import langData from '../../../../language.json';
 import { langAtom } from '@/atoms/atom';
-import { useAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 import Image from 'next/image';
 import Comments from '@/components/Comments';
 
@@ -16,7 +16,7 @@ type Props = {
 
 // TODO:Bu page komple yapılacak
 export default function MoviePage({ params }: Props) {
-  const [lang, setLang] = useAtom(langAtom);
+  const lang = useAtomValue(langAtom);
   const { id } = params;
   const { data, isError, isLoading, isSuccess } = useGetMovieById({
     id,
