@@ -7,10 +7,13 @@ import { useAtom } from 'jotai';
 import Image from 'next/image';
 import Comments from '@/components/Comments';
 import Link from 'next/link';
+import { log } from 'console';
+import Header from '@/components/Header';
 
 type Props = {
   params: {
     id: string;
+    to: string;
   };
 };
 
@@ -30,26 +33,7 @@ export default function MoviePage({ params }: Props) {
   // TODO:Error ve loading yapılacak
   return (
     <div className="">
-      <header className="bg-red-300 ">
-        <div className="container lg:max-w-[1024px] mx-auto flex justify-between items-center h-24">
-          <div className="w-28" />
-          <Link href={`/`}>
-            {' '}
-            <div>{langData[lang].title}</div>
-          </Link>
-
-          <div className="w-28 flex justify-center items-center gap-3 cursor-pointer">
-            <span
-              onClick={() =>
-                lang == 'en-US' ? setLang('tr-TR') : setLang('en-US')
-              }
-            >
-              {lang === 'en-US' ? 'Türkçe' : 'English'}
-            </span>
-            {langData[lang].profile} <div>{langData[lang].settings}</div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main className="container lg:max-w-[1024px] mx-auto  md:bg-green-400 p-10 ">
         <div>
           <Image
