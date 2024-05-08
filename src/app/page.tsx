@@ -10,14 +10,12 @@ import useGetPopularMovies from '@/hooks/useGetPopularMovies';
 import Search from '@/components/Search';
 import Loading from '@/components/Loading';
 import ErrorModal from '@/components/ErrorModal';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function Home() {
   const [movies, setMovies] = useAtom(movieAtom);
   const searchMovies = useAtomValue(searchMoviesAtom);
-  const [lang, setLang] = useAtom(langAtom);
+  const lang = useAtomValue(langAtom);
 
   const model: any = useRef<HTMLDialogElement>();
 
@@ -40,7 +38,6 @@ export default function Home() {
   return (
     <div className="flex flex-col  justify-between">
       <AuthModel model={model} />
-      <Header />
       <main className="container lg:max-w-[1024px] mx-auto  md:bg-green-400  ">
         <Search />
 

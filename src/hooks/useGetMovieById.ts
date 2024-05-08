@@ -12,6 +12,7 @@ const fetch = async (lang: string, id: string): Promise<BasicMovieObject[]> => {
       'Content-Type': 'application/json',
     },
   });
+  // FIXME:Buranın return'ü gerçekten de BasicMovieObject mi?
   return res.data.movieDetails;
 };
 

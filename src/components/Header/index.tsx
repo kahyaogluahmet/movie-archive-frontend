@@ -2,7 +2,7 @@ import React from 'react';
 import langData from '../../../language.json';
 import { langAtom } from '@/atoms/atom';
 import { useAtom } from 'jotai';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 function Header() {
   const [lang, setLang] = useAtom(langAtom);
@@ -12,7 +12,7 @@ function Header() {
       <div className="container lg:max-w-[1024px] mx-auto flex justify-between items-center h-24">
         <div className="w-28" />
         <div>
-          <Link to={'/'}> {langData[lang].title}</Link>
+          <Link href={'/'}> {langData[lang].title}</Link>
         </div>
         <div className="w-28 flex justify-center items-center gap-3 cursor-pointer">
           <span

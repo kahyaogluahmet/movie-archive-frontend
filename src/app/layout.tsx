@@ -3,8 +3,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './globals.css';
 import { Provider, createStore } from 'jotai';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './page';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -18,9 +16,13 @@ export default function RootLayout({
   return (
     <Provider store={myStore}>
       <QueryClientProvider client={queryClient}>
-        <Header />
-        {children}
-        <Footer />
+        <html lang="">
+          <body>
+            <Header />
+            {children}
+            <Footer />
+          </body>
+        </html>
       </QueryClientProvider>
     </Provider>
   );

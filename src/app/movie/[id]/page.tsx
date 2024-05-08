@@ -6,9 +6,6 @@ import { langAtom } from '@/atoms/atom';
 import { useAtom } from 'jotai';
 import Image from 'next/image';
 import Comments from '@/components/Comments';
-import Link from 'next/link';
-import { log } from 'console';
-import Header from '@/components/Header';
 
 type Props = {
   params: {
@@ -32,8 +29,7 @@ export default function MoviePage({ params }: Props) {
 
   // TODO:Error ve loading yapılacak
   return (
-    <div className="">
-      <Header />
+    <>
       <main className="container lg:max-w-[1024px] mx-auto  md:bg-green-400 p-10 ">
         <div>
           <Image
@@ -64,6 +60,6 @@ export default function MoviePage({ params }: Props) {
         </div>
       </main>
       <Comments />
-    </div>
+    </>
   );
 }
